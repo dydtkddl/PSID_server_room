@@ -1,10 +1,10 @@
 ! B3LYP def2-SVP OPT TightSCF D3BJ
 
 
-%maxcore 2000
+%maxcore 4000
 
 %pal
-nprocs 20
+nprocs 28
 end
 
 * xyz 0 1
