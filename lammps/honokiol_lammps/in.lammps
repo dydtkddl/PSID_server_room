@@ -49,13 +49,13 @@ fix msdoutZ O2molecule ave/time 100 1 100 c_msdO[4] file msd_O2_Z.dat
 fix bonds all reax/c/bonds 1000 bonds.reax
 
 # Output settings: Save trajectory and bond information
-thermo 100
+thermo 1000
 thermo_style custom step temp pe ke etotal press
-dump 1 all atom 100 dump.lammpstrj  # Save trajectory
+dump 1 all atom 1000 dump.lammpstrj  # Save trajectory
 
 # Run molecular dynamics simulation (longer to find adsorption site)
 timestep 0.25
-run 200000  # 200 ps 실행
+run 2000000  # 200 ps 실행
 
 # Save final structure after MD
 write_data final_structure.data  # Save final structure for post-processing
