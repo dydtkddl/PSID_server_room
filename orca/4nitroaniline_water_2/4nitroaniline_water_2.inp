@@ -1,5 +1,8 @@
 ! B3LYP def2-SVP OPT TightSCF D3BJ
 
+
+%maxcore 2000
+
 %pal
 nprocs 20
 end
