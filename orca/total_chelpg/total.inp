@@ -1,9 +1,9 @@
 ! B3LYP def2-SVP SP TightSCF ChelpG KEEPDENS
 
-%maxcore 2000
+%maxcore 3000
 
 %pal
-nprocs 60
+nprocs 40
 end
 
 * xyz 0 1
