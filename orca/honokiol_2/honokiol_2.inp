@@ -1,7 +1,7 @@
 ! B3LYP def2-SVP OPT TightSCF ALLPOP KEEPDENS D3BJ
 
 %pal
-nprocs 24
+nprocs 14
 end
 
 * xyz 0 1
@@ -44,3 +44,4 @@ H         -6.09220       -1.18040       -1.21550
 H          4.71560       -3.96940       -0.89620
 H          4.15620       -3.57130        0.83190
 *
+
