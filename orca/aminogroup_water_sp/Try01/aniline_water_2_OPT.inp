@@ -1,9 +1,9 @@
 ! B3LYP def2-SVP SP TightSCF ALLPOP KEEPDENS 
 
-%maxcore 5000
+%maxcore 4000
 
 %pal
-nprocs 20
+nprocs 28
 end
 
 * xyz 0 1
