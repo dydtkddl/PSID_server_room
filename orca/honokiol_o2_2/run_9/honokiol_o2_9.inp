@@ -6,20 +6,6 @@ end
 
 %maxcore 3500
 
-%scf
-  maxiter 200
-  direct true
-  converge 1e-6
-  smears 0.001
-end
-
-%geom
-  maxiter 150
-  TolEnergy 1e-5
-  TolRMSGrad 3e-4
-  TolMaxGrad 5e-4
-end
-
 * xyz -1 2
 O 0.17169 2.05725 -1.80272
 O -4.09357 -1.39903 1.23266
