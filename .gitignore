@@ -1,1 +1,5 @@
 qe/**/pwscf.save/*
+orca/**/*.densities
+orca/**/*.gbw
+orca/**/*.densities
+orca/**/*.gbw
