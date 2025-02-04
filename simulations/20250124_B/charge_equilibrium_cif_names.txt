@@ -1,0 +1,11 @@
+__pycache__.cif
+[CoreMOF]DITYEM_clean_O2_293_15K_15_0bar_14_0.cif
+[CoreMOF]XOPLOE_clean_O2_293_15K_15_0bar_14_0.cif
+[CoreMOF]XALCUJ_clean_O2_293_15K_15_0bar_14_0.cif
+[CoreMOF]XADDEN_manual_O2_293_15K_15_0bar_14_0.cif
+[CoreMOF]QAVPIO_clean_O2_293_15K_15_0bar_14_0.cif
+[CoreMOF]NAHHAI_clean_O2_293_15K_15_0bar_14_0.cif
+[CoreMOF]ZOFZUR_clean_O2_293_15K_15_0bar_14_0.cif
+[CoreMOF]c6cc00589f_c6cc00589f2_clean_O2_293_15K_15_0bar_14_0.cif
+[CoreMOF]XEXMEU_clean_O2_293_15K_15_0bar_14_0.cif
+[CoreMOF]TOFTIT_clean_O2_293_15K_15_0bar_14_0.cif

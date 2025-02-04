@@ -1,0 +1,10 @@
+[CoreMOF]DITYEM_clean
+[CoreMOF]XOPLOE_clean
+[CoreMOF]XALCUJ_clean
+[CoreMOF]XADDEN_manual
+[CoreMOF]QAVPIO_clean
+[CoreMOF]NAHHAI_clean
+[CoreMOF]ZOFZUR_clean
+[CoreMOF]c6cc00589f_c6cc00589f2_clean
+[CoreMOF]XEXMEU_clean
+[CoreMOF]TOFTIT_clean
