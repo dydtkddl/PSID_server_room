@@ -43,3 +43,22 @@ with open(cif_list_path, "r") as file:
             print(f"Unexpected error for {mof}: {e}")
 
 
+SimulationType                   MonteCarlo
+NumberOfCycles                   0
+NumberOfInitializationCycles     0
+PrintEvery                       100
+RestartFile                      no
+
+Forcefield                       GarciaPerez2006ForceField
+# CutOff                           12.0
+
+ChargeFromChargeEquilibration    yes
+ChargeEquilibrationPeriodic      yes
+ChargeEquilibrationEwald         yes
+SymmetrizeFrameworkCharges       no
+
+Framework           0
+FrameworkName       {MOF}
+UnitCells           {UNITCELL}
+ExternalTemperature 298.0
+ExternalPressure    0.0
