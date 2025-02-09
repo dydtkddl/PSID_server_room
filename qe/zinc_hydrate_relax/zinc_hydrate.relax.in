@@ -4,13 +4,13 @@
     max_seconds   =  1.72800e+05
     nstep         = 100
     pseudo_dir    = "/home/ys/qe-7.3.1/pseudo/Standard_solid-state_pseudopotentials_SSSP_1.3.0_PBE_efficiency"
-    outdir = "/home/ys/Research/PSID_server_room/qe/zinc_hydrate_relax
-    tot_charge    = 2   
+    outdir = "/home/ys/Research/PSID_server_room/qe/zinc_hydrate_relax"
 /
 
 &SYSTEM
     a           =  25.00000
     degauss     =  1.00000e-02
+    tot_charge    = 2   
     ecutrho     =  400.00000  
     ecutwfc     =  50.00000  
     ibrav       = 1
