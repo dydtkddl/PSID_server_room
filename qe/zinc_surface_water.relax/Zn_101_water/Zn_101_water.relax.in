@@ -4,7 +4,7 @@
     max_seconds   =  1.72800e+05
     nstep         = 100
     pseudo_dir    = "/home/ys/qe-7.3.1/pseudo/Standard_solid-state_pseudopotentials_SSSP_1.3.0_PBE_efficiency"
-    outdir = "/home/ys/Research/PSID_server_room/qe/zinc_surface_water/Zn_101_water"
+    outdir = "/home/ys/Research/PSID_server_room/qe/zinc_surface_water.relax/Zn_101_water"
 /
 
 &SYSTEM
