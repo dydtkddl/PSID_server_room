@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+
+     Program PWSCF v.7.3.1 starts on 11Feb2025 at 19:53: 9 
+=======
 --------------------------------------------------------------------------
 By default, for Open MPI 4.0 and later, infiniband ports on a device
 are not used by default.  The intent is to use UCX for these devices.
@@ -17,6 +21,7 @@ WARNING: There was an error initializing an OpenFabrics device.
 --------------------------------------------------------------------------
 
      Program PWSCF v.7.3.1 starts on 11Feb2025 at 20: 8: 4 
+>>>>>>> 952d04826e082451eaad8fd724953df9aeee7c48
 
      This program is part of the open-source Quantum ESPRESSO suite
      for quantum simulation of materials; please cite
@@ -27,10 +32,17 @@ WARNING: There was an error initializing an OpenFabrics device.
      in publications or presentations arising from this work. More details at
      http://www.quantum-espresso.org/quote
 
+<<<<<<< HEAD
+     Parallel version (MPI), running on     4 processors
+
+     MPI processes distributed on     1 nodes
+     2683 MiB available memory on the printing compute node when the environment starts
+=======
      Parallel version (MPI), running on    32 processors
 
      MPI processes distributed on     1 nodes
      80693 MiB available memory on the printing compute node when the environment starts
+>>>>>>> 952d04826e082451eaad8fd724953df9aeee7c48
 
      Waiting for input...
      Reading input from standard input
@@ -41,6 +53,15 @@ Warning: card / ignored
      Max number of different atomic species (ntypx) = 10
      Max number of k-points (npk) =  40000
      Max angular momentum in pseudopotentials (lmaxx) =  4
+<<<<<<< HEAD
+
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+     Error in routine check_tempdir (1):
+     temporary directory /home/ys/Research/PSID_server_room/qe/zinc_surface_water.relax/Zn_002_water/ cannot be created or accessed
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+     stopping ...
+=======
      file O.pbe-n-kjpaw_psl.0.1.UPF: wavefunction(s)  2P renormalized
 
      gamma-point specific algorithms are used
@@ -4676,3 +4697,4 @@ a non-zero exit code. Per user-direction, the job has been aborted.
 --------------------------------------------------------------------------
 mpirun noticed that process rank 10 with PID 0 on node psid01 exited on signal 9 (Killed).
 --------------------------------------------------------------------------
+>>>>>>> 952d04826e082451eaad8fd724953df9aeee7c48
