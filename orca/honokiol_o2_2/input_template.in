@@ -1,0 +1,9 @@
+! PBE0 def2-TZVP D3BJ Opt TightSCF UKS  # UKS = Unrestricted DFT (라디칼 반영)
+
+%pal
+nprocs 28
+end
+
+%maxcore 3500
+
+* xyz -1 2  # 전체 시스템: 전하 -1, 다중도 2 (이중항)
