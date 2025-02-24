@@ -1,0 +1,62 @@
+# LAMMPS Input Script for Honokiol + O2- Adsorption Study
+units real
+atom_style charge  # ReaxFF requires charge
+boundary p p p  # Periodic boundary conditions
+
+# Read Honokiol first to define simulation box
+read_data chelpg_updated_honokiol_2_remove_bond.data  
+
+# Now append O2- molecule
+read_data chelpg_updated_O2_remove_bond.data add append
+
+# Define groups
+group honokiol type 1 2 3  # Honokiol (C, H, O)
+group O2molecule type 4  # O2- (assumed type 4)
+
+# Fix Honokiol (prevent movement)
+fix freeze honokiol setforce 0.0 0.0 0.0
+
+# Randomly move O2- as a whole unit
+variable dx equal random(-5,5,12345)
+variable dy equal random(-5,5,67890)
+variable dz equal random(-5,5,54321)
+displace_atoms O2molecule move ${dx} ${dy} ${dz} units box
+
+# Define ReaxFF pair style and parameters
+pair_style reax/c NULL
+pair_coeff * * ffield.reax.rdx C H O O  # O2- included
+
+# Charge equilibration (QEq) required for ReaxFF
+fix 1 all qeq/reaxff 1 0.0 10.0 1.0e-6 reaxff
+
+# Minimize energy before simulation
+minimize 1.0e-6 1.0e-8 5000 10000
+
+# Save minimized structure
+write_data minimized_structure.data  # Save the minimized structure for future analysis
+
+# Define NVT ensemble for simulation (only O2- moves)
+fix nvt O2molecule nvt temp 300.0 300.0 100.0
+
+# Define MSD computation
+compute msdO O2molecule msd
+fix msdout O2molecule ave/time 100 1 100 c_msdO[1] file msd_O2.dat
+fix msdoutX O2molecule ave/time 100 1 100 c_msdO[2] file msd_O2_X.dat
+fix msdoutY O2molecule ave/time 100 1 100 c_msdO[3] file msd_O2_Y.dat
+fix msdoutZ O2molecule ave/time 100 1 100 c_msdO[4] file msd_O2_Z.dat
+
+# Bond Order Analysis (Check if O2 is binding)
+fix bonds all reax/c/bonds 1000 bonds.reax
+
+# Output settings: Save trajectory and bond information
+thermo 100
+thermo_style custom step temp pe ke etotal press
+dump 1 all atom 100 dump.lammpstrj  # Save trajectory
+
+# Run molecular dynamics simulation (longer to find adsorption site)
+timestep 0.25
+run 200000  # 200 ps 실행
+
+# Save final structure after MD
+write_data final_structure.data  # Save final structure for post-processing
+
