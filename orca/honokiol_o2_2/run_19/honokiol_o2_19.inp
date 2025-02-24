@@ -1,4 +1,4 @@
-! wB97X-D3 def2-TZVP OPT NormalSCF
+! wB97X-D3 def2-SVP OPT NormalSCF
 
 %pal
 nprocs 28
@@ -7,17 +7,7 @@ end
 %maxcore 3500
 
 %scf
-  maxiter 200
-  direct true
-  converge 1e-6
-  smears 0.001
-end
-
-%geom
-  maxiter 150
-  TolEnergy 1e-5
-  TolRMSGrad 3e-4
-  TolMaxGrad 5e-4
+ SmearTemp 500 
 end
 
 * xyz -1 2

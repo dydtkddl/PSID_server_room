@@ -1,10 +1,14 @@
-! wB97X-D3 def2-TZVP OPT NormalSCF
+! wB97X-D3 def2-SVP OPT NormalSCF
 
 %pal
 nprocs 28
 end
 
 %maxcore 3500
+
+%scf
+ SmearTemp 500 
+end
 
 * xyz -1 2
 O 0.17169 2.05725 -1.80272
