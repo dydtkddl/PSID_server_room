@@ -1,0 +1,89 @@
+variable i loop 20
+label loop_start
+clear  # 초기화
+
+# Create and move to a new directory for this run
+shell mkdir run_${i}
+shell cd run_${i}
+
+# LAMMPS Input Script for Finding O2- Adsorption Site for DFT
+units real
+atom_style charge  # ReaxFF requires charge
+boundary p p p  # Periodic boundary conditions
+
+# Copy input files to the new directory
+shell cp ../chelpg_updated_honokiol_2_remove_bond.data .
+shell cp ../chelpg_updated_O2_remove_bond.data .
+shell cp ../ffield.reax.rdx .
+
+# Read input data files
+read_data chelpg_updated_honokiol_2_remove_bond.data  
+read_data chelpg_updated_O2_remove_bond.data add append
+
+# Define groups
+group honokiol type 1 2 3  # Honokiol (C, H, O)
+group O2molecule type 4  # O2- (assumed type 4)
+
+# Fix Honokiol to prevent unwanted movement
+fix freeze honokiol setforce 0.0 0.0 0.0
+
+# Define ReaxFF pair style and parameters
+pair_style reax/c NULL
+pair_coeff * * ffield.reax.rdx C H O O  # O2- included
+
+# Charge equilibration (QEq) required for ReaxFF
+fix 1 all qeq/reaxff 1 0.0 10.0 1.0e-6 reaxff
+
+# Define MSD computation
+compute msdO O2molecule msd
+
+# Generate different random positions for O2-
+variable seed1 equal 12345+v_i*1000
+variable seed2 equal 67890+v_i*1000
+variable seed3 equal 54321+v_i*1000
+variable dx equal random(-5,5,v_seed1)
+variable dy equal random(-5,5,v_seed2)
+variable dz equal random(-5,5,v_seed3)
+displace_atoms O2molecule move ${dx} ${dy} ${dz} units box
+
+# Initial energy minimization to relax high-force configurations
+minimize 1.0e-6 1.0e-8 5000 10000
+write_data minimized_structure_${i}.data  # Save minimized structure
+
+# Run NVT MD simulation for O2- to find adsorption site
+fix nvt O2molecule nvt temp 300.0 300.0 100.0
+
+fix msdout O2molecule ave/time 100 1 100 c_msdO[1] file msd_O2_${i}.dat
+fix msdoutX O2molecule ave/time 100 1 100 c_msdO[2] file msd_O2_X_${i}.dat
+fix msdoutY O2molecule ave/time 100 1 100 c_msdO[3] file msd_O2_Y_${i}.dat
+fix msdoutZ O2molecule ave/time 100 1 100 c_msdO[4] file msd_O2_Z_${i}.dat
+
+# Save total energy to a file
+variable etotal equal pe+ke
+fix totenergy all print 100 "${etotal}" file total_energy_${i}.dat screen no
+
+# Bond Order Analysis (Check if O2- is binding)
+fix bonds all reax/c/bonds 1000 bonds_${i}.reax
+
+# Output settings: Save trajectory and bond information
+thermo 100
+thermo_style custom step temp pe ke etotal press
+dump ${i} all atom 100 dump_${i}.lammpstrj  # Save trajectory
+
+timestep 0.25
+run 200000  # 1000 ps
+
+# Final energy minimization for most stable adsorption structure
+unfix nvt
+minimize 1.0e-6 1.0e-8 5000 10000
+write_data final_structure_${i}.data  # Save final structure for DFT
+
+# Dump final structure in XYZ format for DFT input
+write_dump all xyz final_structure_${i}.xyz
+
+# Move back to parent directory
+shell cd ..
+
+# Increment loop
+next i
+jump SELF loop_start
