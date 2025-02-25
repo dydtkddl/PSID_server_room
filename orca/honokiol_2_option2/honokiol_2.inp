@@ -4,7 +4,7 @@
 nprocs 28
 end
 
-%maxcore 3500
+%maxcore 5000
 
 %scf
  SmearTemp 500 
