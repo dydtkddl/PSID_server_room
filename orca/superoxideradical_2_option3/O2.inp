@@ -1,10 +1,14 @@
-! wB97X-D3 def2-TZVPP TightSCF RIJCOSX SP
+! B3LYP def2-SVP OPT NormalSCF ALLPOP KEEPDENS D3BJ
 
 %pal
 nprocs 28
 end
 
 %maxcore 5000
+
+%scf
+ SmearTemp 500 
+end
 
 * xyz -1 2
   O           0.00533670813972      0.00000000000000      0.00000000000000
