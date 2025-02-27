@@ -3,3 +3,5 @@ orca/**/*.densities
 orca/**/*.gbw
 orca/**/*.densities
 orca/**/*.gbw
+orca/**/*.tmp
+orca/**/*.tmp.*
