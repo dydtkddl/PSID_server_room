@@ -1,4 +1,4 @@
-! B3LYP def2-SVP SP TightSCF ChelpG KEEPDENS
+! B3LYP def2-SVP SP TightSCF ChelpG KEEPDENS Hirshfeld
 
 %maxcore 3000
 
